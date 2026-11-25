@@ -171,7 +171,14 @@ Exécutez et vérifiez :
 
 ```bash
 uv run python pipelines/extract.py
+```
+
+```bash
 uv run python -c "import duckdb; print(duckdb.connect('warehouse.duckdb').sql('SELECT count(*) FROM bronze.orders'))"
+```
+
+```bash
+uv run python -c "import duckdb; print(duckdb.connect('warehouse.duckdb').sql('SELECT count(*) FROM bronze.customers'))"
 ```
 
 ### Vérifications
@@ -179,7 +186,7 @@ uv run python -c "import duckdb; print(duckdb.connect('warehouse.duckdb').sql('S
 - [ ] `warehouse.duckdb` contient `bronze.customers` (500 lignes) et `bronze.orders` (autant de lignes que le CSV, en-tête exclu)
 - [ ] Relancer le script ne change pas le nombre de lignes
 
-⸻
+---
 
 ## 3. Transform & Normalize → Silver
 
